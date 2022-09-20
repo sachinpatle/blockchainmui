@@ -6,11 +6,31 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 export default function Welcome() {
 
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
+    const InputButton = ({ placeholder, name, type, value, handleChange }) => {
+        return (
+            <TextField
+                sx={{
+                    backgroundColor: "white"
+                }}
+                placeholder={placeholder}
+                type={type}
+                value={value}
+                onChange={(e) => handleChange(e, name)}
+                label={name}
+            />
+        )
+    }
+
+
+
+
+
 
     return (
         <Grid sx={{ display: "flex", flexDirection: { xs: 'column', sm: 'column', md: 'row' }, "justifyContent": "space-evenly", backgroundColor: "black" }}>
@@ -25,21 +45,23 @@ export default function Welcome() {
                     Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.
                 </h4>
                 <table style={{ "marginLeft": "10%", "color": "white", "borderRadius": "10px", "border": "solid 1px" }}>
-                    <tr>
-                        <td style={{ padding: "20px" }}>Reliability</td>
-                        <td style={{ padding: "20px" }}>Security</td>
-                        <td style={{ padding: "20px" }}>Ethereum</td>
-                    </tr>
-                    <tr>
-                        <td style={{ padding: "20px" }}>Web 3.0</td>
-                        <td style={{ padding: "20px" }}>Low Fees</td>
-                        <td style={{ padding: "20px" }}>Blockchain</td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td style={{ padding: "20px" }}>Reliability</td>
+                            <td style={{ padding: "20px" }}>Security</td>
+                            <td style={{ padding: "20px" }}>Ethereum</td>
+                        </tr>
+                        <tr>
+                            <td style={{ padding: "20px" }}>Web 3.0</td>
+                            <td style={{ padding: "20px" }}>Low Fees</td>
+                            <td style={{ padding: "20px" }}>Blockchain</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
             {/* card and  form div */}
             <div style={{ display: "flex", flexDirection: "column" }}>
-                <div style={{ "background": "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)", "borderRadius": "9px" }}>
+                <div style={{ marginLeft: "20%", marginTop: "6%", width: "42%", "background": "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)", "borderRadius": "9px" }}>
                     <div style={{ display: "flex", flexDirection: "row" }}>
                         <div >
                             <CurrencyBitcoinIcon />
@@ -56,46 +78,33 @@ export default function Welcome() {
                     </div>
 
                 </div>
-                    <Box
-                        component="form"
-                        sx={{
-                            '& .MuiTextField-root': { m: 1, width: '25ch' },
-                            backgroundColor:"red"
-                        }}
-                        noValidate
-                        autoComplete="off"
-                    >
-                        <TextField
-                            required
-                            id="outlined-required"
-                            label="Required"
-                            defaultValue="Hello World"
-                        />
-                        <TextField
-                            id="outlined-password-input"
-                            label="Password"
-                            type="password"
-                            autoComplete="current-password"
-                        />
-                        <TextField
-                            id="outlined-read-only-input"
-                            label="Read Only"
-                            defaultValue="Hello World"
-                            InputProps={{
-                                readOnly: true,
-                            }}
-                        />
-                        <TextField
-                            id="outlined-number"
-                            label="Number"
-                            type="number"
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                        />
-                    </Box>
+                <Box
+                    component="form"
+                    sx={{
+                        "marginLeft": "17%",
+                        "width": "50%",
+                        "marginTop": "3%",
+                        '& .MuiTextField-root': { m: 1, width: '25ch' },
+                        backgroundColor: "#0f0e13"
+                    }}
+                    noValidate
+                    autoComplete="off"
+                >
+                    <div style={{
+                        backgroundColor: "white"
+                    }}>
+                        <InputButton placeholder="Address To" name="addressTo" type="text" />
+                        <InputButton placeholder="Amount (ETH)" name="amount" type="number" />
+                        <InputButton placeholder="Keyword (Gif)" name="keyword" type="text" />
+                        <InputButton placeholder="Enter Message" name="message" type="text" />
 
+                    </div>
+                    <hr></hr>
+                    <div style={{ textAlign: "center" }}>
+                        <Button variant="outlined">Submit Now</Button>
+                    </div>
 
+                </Box>
             </div>
         </Grid>
     )

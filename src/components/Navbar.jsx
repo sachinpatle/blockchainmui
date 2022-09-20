@@ -26,10 +26,7 @@ const useStyles = makeStyles({
     "backgroundColor":"#4CAF50",
     "border":"none",
     "borderRadius":"30px",
-    "&:hover" :
-    {
-        "backgroundColor":"#3e8e41"
-    }
+   
 }
 });
 
