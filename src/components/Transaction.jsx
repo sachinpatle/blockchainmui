@@ -7,12 +7,13 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 import dummyData from '../utils/dummyData';
+import Box from '@mui/material/Box';
 export default function Transaction() {
 
     const TransactionCard = ({transaction}) => {
         return (
             <div>
-                <Card sx={{ maxWidth: 345 }}>
+                <Card>
                     <CardHeader
                         title="Shrimp and Chorizo Paella"
                         subheader="September 14, 2016"
@@ -41,14 +42,13 @@ export default function Transaction() {
             <div>
                 Latest Transactions
             </div>
-            <Grid sx={{ display: "flex", flexDirection: { xs: 'column', sm: 'column', md: 'row' }, "justifyContent": "space-evenly", backgroundColor: "red" }}>
+            <Box sx={{ display: "flex", flexDirection: { xs: 'column', sm: 'column', md: 'row' ,xl:'none'}, "justifyContent": "space-evenly"}}>
                 {
-                    dummyData.map((transaction, i) => {
+                    dummyData.map((transaction, i) => (
                         <TransactionCard transaction={transaction} key={i}/>
-                    })
+                    ))
                 }
-               
-            </Grid>
+            </Box>
         </>
 
     )
