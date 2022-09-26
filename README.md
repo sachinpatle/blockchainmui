@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+#  Regarding this app 
+#  My understanding is written here
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1.we will need the environment where we can test  ethereum transactions for that HARDHAT is 
+used. also HARDHAT is used for running hardhat locally
 
-## Available Scripts
+2.for contract to be deployed on development network we need to have the some ethereum into the own wallets
+because everything we need to do on etherium network need gas fees (some etherium).
 
-In the project directory, you can run:
+3.when the transaction are deployed on the blockchain network ,then we will get the address of the  smart contract that is deployed on the blockchain network. 
 
-### `npm start`
+4.Ropsten testnet faucet , here faucet provides the test etherium free of charge simply we have to provide  the own etherium wallet  address and test ethrium will be sended to the etherium wallet and then we can deploy our smart contract to etherium blockchain network.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+5.how to make own etherium wallet?
+Ans: metaMask is used to create the etherium wallets
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+6.alchemy : here we will deploy your blockchain smart contracts ,so its like the deployment server for  the blockchain smart contracts.
 
-### `npm test`
+7.what is differnce between plugin and packages 
+Ans : plugin they are tools for doing some functionality
+      packages : package we need to develop some thing new or develop new things
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+8. hardhat-waffle --> it is plugin (so it is tool we should know how to use it and that its) to build smart contract tests
 
-### `npm run build`
+9. abi --> it is appication binary interface --> so what is use of ABI ?
+    Why we need abi?
+    Ans : how to connect to the ethereum network can we directly connect to the ethereum network 
+          and the answer is no , so abi help us to connect with the ethereum ecosystem inside the ethereum network(contract to contract) or outside the ethereum network.so abi keeps all information about your contracts
+          so when we deploy the smart contract then along with the address where the smart contract is deployed on the blockchain network  abi is also created.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+        
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+10.npm package installed in for smart contracts  :  npm install --save-dev hardhat @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+11. npx hardhat run scripts/deploy.js --network goerli --> By running this command the smart contract is deployed on the blockchain network and as soon as it gets deployed we will got one deployed address of tha contract 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+like this  : 0xf4483B9Ed7491B4C6588F3109296e59C765abE56
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# applying the fayman techniue for any loop hole in the understanding
+ need to chec#

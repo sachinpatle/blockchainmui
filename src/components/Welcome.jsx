@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from "react";
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import { useTheme } from '@mui/material/styles';
@@ -7,8 +7,11 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-
+import { TransactionContext } from "../context/TransactionContext";
 export default function Welcome() {
+
+    const {VALUE}  = useContext(TransactionContext);
+    console.log("VALUE",VALUE);
 
     const theme = useTheme();
 
