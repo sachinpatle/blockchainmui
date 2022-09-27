@@ -8,32 +8,36 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { TransactionContext } from "../context/TransactionContext";
+
+const InputButton = ({ placeholder, name, type, value, handleChange }) => {
+    return (
+        <TextField
+            sx={{
+                backgroundColor: "white"
+            }}
+            placeholder={placeholder}
+            type={type}
+            defaultValue={type === "number" ? 0.0001 : ""}
+            value={value}
+            onChange={(e) => handleChange(e, name)}
+            label={name}
+        />
+    )
+}
+
 export default function Welcome() {
+    const { currentAccount, connectWallet, handleChange, formData ,sendTransaction} = useContext(TransactionContext);
+    console.log("currentAccount", currentAccount);
 
-    const {VALUE}  = useContext(TransactionContext);
-    console.log("VALUE",VALUE);
+    const handleSubmit = (e) => {
+        const { addressTo, amount, keyword, message } = formData;
 
-    const theme = useTheme();
+        e.preventDefault();
 
-    const InputButton = ({ placeholder, name, type, value, handleChange }) => {
-        return (
-            <TextField
-                sx={{
-                    backgroundColor: "white"
-                }}
-                placeholder={placeholder}
-                type={type}
-                value={value}
-                onChange={(e) => handleChange(e, name)}
-                label={name}
-            />
-        )
-    }
+        if (!addressTo || !amount || !keyword || !message) return;
 
-
-
-
-
+        sendTransaction();
+    };
 
     return (
         <Grid sx={{ display: "flex", flexDirection: { xs: 'column', sm: 'column', md: 'row' }, "justifyContent": "space-evenly", backgroundColor: "black" }}>
@@ -47,6 +51,19 @@ export default function Welcome() {
                 <h4 style={{ color: "white", "marginLeft": "10%", "textAlign": "center", "marginTop": "10%" }}>
                     Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.
                 </h4>
+                {
+                    !currentAccount &&
+                    <>
+                        <div style={{ textAlign: "center" }}>
+                            <Button
+                                onClick={connectWallet}
+                                variant="outlined">Connect to Wallet</Button>
+                        </div>
+                        <br>
+                        </br>
+                        </>
+                }
+
                 <table style={{ "marginLeft": "10%", "color": "white", "borderRadius": "10px", "border": "solid 1px" }}>
                     <tbody>
                         <tr>
@@ -96,15 +113,17 @@ export default function Welcome() {
                     <div style={{
                         backgroundColor: "white"
                     }}>
-                        <InputButton placeholder="Address To" name="addressTo" type="text" />
-                        <InputButton placeholder="Amount (ETH)" name="amount" type="number" />
-                        <InputButton placeholder="Keyword (Gif)" name="keyword" type="text" />
-                        <InputButton placeholder="Enter Message" name="message" type="text" />
+                        <InputButton placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
+                        <InputButton placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange} />
+                        <InputButton placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} />
+                        <InputButton placeholder="Enter Message" name="message" type="text" handleChange={handleChange} />
 
                     </div>
                     <hr></hr>
                     <div style={{ textAlign: "center" }}>
-                        <Button variant="outlined">Submit Now</Button>
+                        <Button
+                            onClick={handleSubmit}
+                            variant="outlined">Submit Now</Button>
                     </div>
 
                 </Box>
