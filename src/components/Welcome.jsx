@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { TransactionContext } from "../context/TransactionContext";
+import {shortedAddress} from '../utils/ShortedAddress'
 
 const InputButton = ({ placeholder, name, type, value, handleChange }) => {
     return (
@@ -93,7 +94,11 @@ export default function Welcome() {
 
                         </div>
                     </div>
-                    <div style={{ "marginTop": "35%", "marginLeft": "39%" }}>
+                    <div style={{ "marginTop": "15%", "marginLeft": "3%" }}>
+                        {shortedAddress(currentAccount)}
+                    </div>
+                   
+                    <div style={{ "marginTop": "15%", "marginLeft": "39%" }}>
                         Ethereum
                     </div>
 
